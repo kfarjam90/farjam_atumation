@@ -1,0 +1,15 @@
+body {
+    background-image: url('film.jpg');
+    background-size: cover; /* Adjusts the background image size */
+    background-attachment: fixed; /* Fixes the background image */
+    background-position: center;
+}
+
+h1{
+    color: white;
+}
+.movie {
+    color: white;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
