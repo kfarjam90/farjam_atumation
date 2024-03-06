@@ -14,12 +14,6 @@ Ensure you have Python and Flask installed.
     git clone <repository-url>
     ```
 
-2. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 ## Usage
 
 1. Run the Flask application:
