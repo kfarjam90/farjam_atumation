@@ -1,11 +1,11 @@
 from flask import Flask,request,jsonify,redirect
+from db import database
 import string
 import random
 
 
 app = Flask(__name__)
 
-database = {}
 
 def produce_shortcode():
     shortcode = ''
