@@ -40,7 +40,7 @@ Before running this application, ensure you have the following installed:
 
 ### Shortening URLs
 
-To shorten a URL, send a POST request to `/shorten` with a JSON payload containing the URL you want to shorten. Optionally, you can provide a custom shortcode. If you don't provide a shortcode, a random one will be generated.
+To shorten a URL, send a POST request to /shorten endpoint with the following JSON payload
 
 Example:
 
