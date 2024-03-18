@@ -8,9 +8,9 @@ This application allows users to shorten long URLs into shorter, more manageable
 
 ## Features
 
-- Shorten long URLs into shorter, more manageable ones.
-- Generate a random shortcode for each URL or allow custom shortcodes.
-- Redirect users to the original URL when accessing the shortcode.
+- Shortening URLs: Users can send a POST request to /shorten with a JSON payload containing the long URL to be shortened. If a custom shortcode is provided, it will be used; otherwise, a random shortcode will be generated.
+- Redirection: Users can use the generated shortcodes to access the original long URLs. Accessing /<shortcode> will redirect users to the original URL.
+- Statistics: Users can retrieve statistics for a shortened URL by accessing /<shortcode>/stats. Statistics include creation time, last redirect time, and the number of 
 
 ## Prerequisites
 
