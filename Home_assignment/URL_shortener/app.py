@@ -2,7 +2,7 @@ from flask import Flask,request,jsonify,redirect
 from db import database
 import string
 import random
-
+import json
 
 app = Flask(__name__)
 
@@ -34,6 +34,8 @@ def shorten_url():
         shortcode = produce_shortcode()
 
     database[shortcode] = url
+    with open('urls.json','w') as file:
+        json.dump(database,file)
   
     return jsonify({'shortcode': shortcode})
 
