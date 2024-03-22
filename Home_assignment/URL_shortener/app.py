@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 >>>>>>> f86e838f98e078a490a80e5154ac7a99443d4672
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 def produce_shortcod():
     """
