@@ -1,0 +1,28 @@
+#item1 {
+    color: red;
+}
+
+
+.item2 {
+    border: 2px solid blue;
+}
+
+.item3 {
+    font-size: 18px;
+}
+
+
+.item4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.item5 {
+    text-decoration: underline;
+}
+
+.item6{
+    background-color: yellow;
+    font-weight: bold;
+}
