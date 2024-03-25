@@ -42,3 +42,10 @@ This API allows users to shorten URLs and track redirection statistics.
 ## Testing
 
 Use tools like Postman or cURL to send requests to the API endpoints and verify the responses.
+Example:
+
+```bash
+{
+    "url": "https://www.example.com/"
+}
+```
