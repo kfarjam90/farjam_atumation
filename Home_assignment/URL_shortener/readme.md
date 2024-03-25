@@ -11,7 +11,7 @@ This API allows users to shorten URLs and track redirection statistics.
 
 2. Clone the repository and navigate to the project directory:
     ```
-    git clone https://github.com/your_username/url-shortener.git
+    git clone https://github.com/kfarjam90/url-shortener.git
     cd url-shortener
     ```
 
