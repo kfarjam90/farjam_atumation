@@ -43,6 +43,14 @@ This API allows users to shorten URLs and track redirection statistics.
 
 Use tools like Postman or cURL to send requests to the API endpoints and verify the responses.
 
+### Request Body
+
+```json
+{
+    "url": "https://www.example.com/",
+    "shortcode": "asd123"
+}
+
 Example:
 
 ```bash
