@@ -47,14 +47,7 @@ Use tools like Postman or cURL to send requests to the API endpoints and verify 
 
 ```json
 {
-    "url": "https://www.example.com/",
-    "shortcode": "asd123"
-}
-
-Example:
-
-```bash
-{
     "url": "https://www.example.com/"
 }
-```
+
+
