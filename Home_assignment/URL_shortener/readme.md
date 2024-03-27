@@ -58,7 +58,7 @@ Use tools like Postman to send requests to the API endpoints and verify the resp
 Response:
 ```json
 {
-    "shortcode": "generated_shortcode"
+    "shortcode": "produce_shortcode"
 }
 ```
 2. **To test the `/<shortencode>` endpoint:**
