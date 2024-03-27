@@ -48,9 +48,9 @@ The Stats model stores statistics for each short URL, such as the creation date,
 
 ## Usage
 
-1. Install the required dependencies: flask and sqlalchemy.
-2. Run the Flask application: python app.py.
-3. Use a tool like curl or a web browser to interact with the URL shortening service.
+1. Install the required dependencies: `flask` and `sqlalchemy`.
+2. Run the Flask application: `python app.py`.
+3. Use a tool like postman to interact with the URL shortening service.
 
 ## Testing
 
