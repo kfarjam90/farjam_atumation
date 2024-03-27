@@ -1,48 +1,81 @@
-# Flask URL Shortener
+# URL Shortener API
 
-## Introduction
-
-This is a simple Flask application that provides a URL shortening service. It allows users to create short URLs for long URLs and retrieve statistics for each short URL.
-
-## Features
-
-- Shortening URLs: Users can send a POST request to /shorten with a JSON payload containing the long URL to be shortened. If a custom shortcode is provided, it will be used; otherwise, a random shortcode will be generated.
-- Redirection: Users can use the generated shortcodes to access the original long URLs. Accessing /`<shortcode>` will redirect users to the original URL.
-- Statistics: Users can retrieve statistics for a shortened URL by accessing /`<shortcode>`/stats. Statistics include creation time, last redirect time, and the number of
-
-## Prerequisites
-
-Before running this application, ensure you have the following installed:
-
-- Python 3.x
-- Flask
-- [db.py](db.py) module containing the `database` dictionary
+This API allows users to shorten URLs and track redirection statistics.
 
 ## Installation
 
-1. Clone or download the repository to your local machine.
-2. Install Flask using pip:
+1. Install Flask and SQLAlchemy using pip:
+    ```
+    pip install Flask SQLAlchemy
+    ```
 
-   ```bash
-   pip install Flask
-   ```
-3. Ensure the `db.py` module is present in the same directory as `app.py`.
-4. Run the `app.py` file using Python:
-
-   ```bash
-   python app.py
-   ```
+2. Clone the repository and navigate to the project directory:
+    ```
+    git clone https://github.com/kfarjam90/url-shortener.git
+    cd url-shortener
+    ```
 
 ## Usage
 
-### Shortening URLs
+1. Start the server by running:
+    ```
+    python app.py
+    ```
 
-To shorten a URL, send a POST request to /shorten endpoint with the following JSON payload
+2. The server will start running locally at http://127.0.0.1:5000/.
 
-Example:
+### API Endpoints
 
-```bash
+1. **Shorten URL:**
+   - **Endpoint:** `POST /shorten`
+   - **Request Body:** JSON object with keys 'url' and optional 'shortcode'.
+   - **Response:** JSON response containing the shortcode for the shortened URL.
+
+2. **Redirect URL:**
+   - **Endpoint:** `GET /<shortcode>`
+   - **Response:** Redirection to the original URL associated with the provided shortcode.
+
+3. **Get Stats:**
+   - **Endpoint:** `GET /<shortcode>/stats`
+   - **Response:** JSON response containing statistics for the URL associated with the shortcode.
+
+## Testing
+
+Use tools like Postman to send requests to the API endpoints and verify the responses.
+
+1. **To test the `/shorten` endpoint:**
+   - Set the request method to `POST`.
+   - Set the request URL to `http://localhost:5000/shorten`.
+   - Go to the `body` tab, select `raw` and choose `JSON` as the format.
+   - Enter a JSON object with the url key and the URL you want to shorten.
+   - You can also include a `shortcode` key if you want.
+   - Click send `send` to send the request.
+```json
 {
     "url": "https://www.example.com/"
+}
+```
+Response:
+```json
+{
+    "shortcode": "produce_shortcode"
+}
+```
+2. **To test the `/<shortencode>` endpoint:**
+   - Set the request method to `GET`.
+   - Set the request URL to `http://localhost:5000/<shortencode>`, replacing `/<shortencode>` with the shortcode you received from the `/shorten`          endpint.
+   - Click send `send` to send the request. You should be redirected to the orgiginal URL associetd with the shortcode.
+     
+2. **To test the `/<shortencode>/stats` endpoint:**
+   - Set the request method to `GET`.
+   - Set the request URL to `http://localhost:5000/<shortencode>/stats`, replacing `/<shortencode>` with the shortcode you received from the `/shorten`          endpint.
+   - Click send `send` to send the request. You should receive a JSON response with statistics for the URL associated with the shortcode.
+
+Response:
+```json
+{
+    "created": "2017-05-10T20:45:00.000Z",
+    "lastRedirect": "2018-05-16T10:16:24.666Z",
+    "redirectCount": 2
 }
 ```
