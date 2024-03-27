@@ -11,7 +11,6 @@ The URL model represents a short URL and its associated long URL.
 - id (Integer): The primary key for the URL.
 - shortcode (String): The unique 6-character code representing the short URL.
 - url (String): The original long URL.
-- stats_id (Integer): The foreign key referencing the Stats model.
 
 ### Stats
 
@@ -22,7 +21,6 @@ The Stats model stores statistics for each short URL, such as the creation date,
 - created (DateTime): The date and time when the short URL was created.
 - last_redirect (DateTime): The date and time of the last redirection to the long URL.
 - redirect_count (Integer): The number of times the short URL has been redirected.
-- urls (Relationship): The one-to-one relationship with the URL model.
 
 ## Routes
 
