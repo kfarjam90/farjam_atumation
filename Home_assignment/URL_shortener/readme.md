@@ -41,18 +41,27 @@ This API allows users to shorten URLs and track redirection statistics.
 
 ## Testing
 
-Use tools like Postman or cURL to send requests to the API endpoints and verify the responses.
+Use tools like Postman to send requests to the API endpoints and verify the responses.
 
-1. **Test the `/shorten` endpoint:**
-   - set the request URL to http://localhost:5000/shorten
-   - go to the body tab, select raw and choose JSON as the format.
+1. **To test the `/shorten` endpoint:**
+   - Set the request method to `POST`.
+   - Set the request URL to `http://localhost:5000/shorten`.
+   - Go to the `body` tab, select `raw` and choose `JSON` as the format.
    - Enter a JSON object with the url key and the URL you want to shorten.
+   - You can also include a `shortcode` key if you want.
+   - Click send `send` to send the request.
 ```json
 {
     "url": "https://www.example.com/"
 }
-
-
-
-
-
+```
+2. **To test the `/<shortencode>` endpoint:**
+   - Set the request method to `GET`.
+   - Set the request URL to `http://localhost:5000/<shortencode>`, replacing `/<shortencode>` with the shortcode you received from the `/shorten`          endpint.
+   - Click send `send` to send the request. You should be redirected to the orgiginal URL associetd with the shortcode.
+     
+2. **To test the `/<shortencode>/stats` endpoint:**
+   - Set the request method to `GET`.
+   - Set the request URL to `http://localhost:5000/<shortencode>/stats`, replacing `/<shortencode>` with the shortcode you received from the `/shorten`          endpint.
+   - Click send `send` to send the request. You should receive a JSON response with statistics for the URL associated with the shortcode.
+   
