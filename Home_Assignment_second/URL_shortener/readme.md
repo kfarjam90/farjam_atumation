@@ -22,19 +22,21 @@ The Stats model stores statistics for each short URL, such as the creation date,
 - last_redirect (DateTime): The date and time of the last redirection to the long URL.
 - redirect_count (Integer): The number of times the short URL has been redirected.
 
-## Routes
+### API Endpoints
 
-### /shorten (POST)
+1. **Shorten URL:**
 
-This route is used to shorten a URL. It expects a JSON object with keys 'url' and 'shortcode' in the request body. If the 'shortcode' is not provided, a unique 6-character shortcode will be generated. If the provided 'shortcode' is already in use or invalid, appropriate error responses will be returned.
+   - **Endpoint:** `POST /shorten`
+   - **Request Body:** JSON object with keys 'url' and optional 'shortcode'.
+   - **Response:** JSON response containing the shortcode for the shortened URL.
+2. **Redirect URL:**
 
-### /<shortcode> (GET)
+   - **Endpoint:** `GET /<shortcode>`
+   - **Response:** Redirection to the original URL associated with the provided shortcode.
+3. **Get Stats:**
 
-This route redirects the user to the long URL associated with the provided shortcode. It updates the last_redirect and redirect_count fields in the Stats model for the corresponding short URL.
-
-### /<shortcode>/stats (GET)
-
-This route retrieves the statistics for the short URL associated with the provided shortcode. It returns a JSON object containing the created, lastRedirect, and redirectCount fields.
+   - **Endpoint:** `GET /<shortcode>/stats`
+   - **Response:** JSON response containing statistics for the URL associated with the shortcode.
 
 ## Usage
 
