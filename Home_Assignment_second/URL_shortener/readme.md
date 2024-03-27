@@ -8,23 +8,24 @@ This is a Flask web application that provides a URL shortening service. It allow
 
 The URL model represents a short URL and its associated long URL.
 
-- id (Integer): The primary key for the URL.
-- shortcode (String): The unique 6-character code representing the short URL.
-- url (String): The original long URL.
+- `id` (Integer): The primary key for the URL.
+- `shortcode` (String): The unique 6-character code representing the short URL.
+- `url` (String): The original long URL.
 
 ### Stats
 
 The Stats model stores statistics for each short URL, such as the creation date, last redirect date, and redirect count.
 
-- id (Integer): The primary key for the stats.
-- shortcode (String): The unique 6-character code representing the short URL.
-- created (DateTime): The date and time when the short URL was created.
-- last_redirect (DateTime): The date and time of the last redirection to the long URL.
-- redirect_count (Integer): The number of times the short URL has been redirected.
+- `id` (Integer): The primary key for the stats.
+- `shortcode` (String): The unique 6-character code representing the short URL.
+- `created` (DateTime): The date and time when the short URL was created.
+- `last_redirect` (DateTime): The date and time of the last redirection to the long URL.
+- `redirect_count` (Integer): The number of times the short URL has been redirected.
 
 ### API Endpoints
 
 1. **Shorten URL:**
+   
    This endpoint is used to shorten a URL.
 
    - **Endpoint:** `POST /shorten`
@@ -32,13 +33,15 @@ The Stats model stores statistics for each short URL, such as the creation date,
    - **Response:** JSON response containing the shortcode for the shortened URL.
      
 3. **Redirect URL:**
-    This route redirects the user to the long URL associated with the provided shortcode.
+   
+    This endpoint redirects the user to the long URL associated with the provided shortcode.
 
    - **Endpoint:** `GET /<shortcode>`
    - **Response:** Redirection to the original URL associated with the provided shortcode.
      
 5. **Get Stats:**
-   This route retrieves the statistics for the short URL associated with the provided shortcode.
+   
+   This endpoint retrieves the statistics for the short URL associated with the provided shortcode.
 
    - **Endpoint:** `GET /<shortcode>/stats`
    - **Response:** JSON response containing statistics for the URL associated with the shortcode.
