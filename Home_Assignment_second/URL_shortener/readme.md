@@ -1,45 +1,48 @@
-# URL Shortener API
+# URL Shortening Service with Flask and SQLAlchemy
 
-This API allows users to shorten URLs and track redirection statistics.
+This is a Flask web application that provides a URL shortening service. It allows users to create short URLs, redirect to the original long URLs associated with the short URLs, and retrieve statistics for each short URL. The application uses SQLAlchemy to interact with a SQLite database for storing and retrieving the URLs and their statistics.
 
-## Installation
+## Models
 
-1. Install Flask and SQLAlchemy using pip:
+### URL
 
-   ```
-   pip install Flask SQLAlchemy
-   ```
-2. Clone the repository and navigate to the project directory:
+The URL model represents a short URL and its associated long URL.
 
-   ```
-   git clone https://github.com/kfarjam90/url-shortener.git
-   cd url-shortener
-   ```
+- id (Integer): The primary key for the URL.
+- shortcode (String): The unique 6-character code representing the short URL.
+- url (String): The original long URL.
+- stats_id (Integer): The foreign key referencing the Stats model.
+
+### Stats
+
+The Stats model stores statistics for each short URL, such as the creation date, last redirect date, and redirect count.
+
+- id (Integer): The primary key for the stats.
+- shortcode (String): The unique 6-character code representing the short URL.
+- created (DateTime): The date and time when the short URL was created.
+- last_redirect (DateTime): The date and time of the last redirection to the long URL.
+- redirect_count (Integer): The number of times the short URL has been redirected.
+- urls (Relationship): The one-to-one relationship with the URL model.
+
+## Routes
+
+### /shorten (POST)
+
+This route is used to shorten a URL. It expects a JSON object with keys 'url' and 'shortcode' in the request body. If the 'shortcode' is not provided, a unique 6-character shortcode will be generated. If the provided 'shortcode' is already in use or invalid, appropriate error responses will be returned.
+
+### /<shortcode> (GET)
+
+This route redirects the user to the long URL associated with the provided shortcode. It updates the last_redirect and redirect_count fields in the Stats model for the corresponding short URL.
+
+### /<shortcode>/stats (GET)
+
+This route retrieves the statistics for the short URL associated with the provided shortcode. It returns a JSON object containing the created, lastRedirect, and redirectCount fields.
 
 ## Usage
 
-1. Start the server by running:
-
-   ```
-   python app.py
-   ```
-2. The server will start running locally at http://127.0.0.1:5000/.
-
-### API Endpoints
-
-1. **Shorten URL:**
-
-   - **Endpoint:** `POST /shorten`
-   - **Request Body:** JSON object with keys 'url' and optional 'shortcode'.
-   - **Response:** JSON response containing the shortcode for the shortened URL.
-2. **Redirect URL:**
-
-   - **Endpoint:** `GET /<shortcode>`
-   - **Response:** Redirection to the original URL associated with the provided shortcode.
-3. **Get Stats:**
-
-   - **Endpoint:** `GET /<shortcode>/stats`
-   - **Response:** JSON response containing statistics for the URL associated with the shortcode.
+1. Install the required dependencies: flask and sqlalchemy.
+2. Run the Flask application: python app.py.
+3. Use a tool like curl or a web browser to interact with the URL shortening service.
 
 ## Testing
 
