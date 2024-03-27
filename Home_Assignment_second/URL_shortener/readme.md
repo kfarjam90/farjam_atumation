@@ -2,6 +2,22 @@
 
 This is a Flask web application that provides a URL shortening service. It allows users to create short URLs, redirect to the original long URLs associated with the short URLs, and retrieve statistics for each short URL. The application uses SQLAlchemy to interact with a SQLite database for storing and retrieving the URLs and their statistics.
 
+
+## Installation
+
+1. Install Flask and SQLAlchemy using pip:
+
+   ```
+   pip install Flask SQLAlchemy
+   ```
+2. Clone the repository and navigate to the project directory:
+
+   ```
+   git clone https://github.com/kfarjam90/url-shortener.git
+   cd url-shortener
+   ```
+
+
 ## Models
 
 ### URL
@@ -25,22 +41,20 @@ The Stats model stores statistics for each short URL, such as the creation date,
 ### API Endpoints
 
 1. **Shorten URL:**
-   
+
    This endpoint is used to shorten a URL.
 
    - **Endpoint:** `POST /shorten`
    - **Request Body:** JSON object with keys 'url' and optional 'shortcode'.
    - **Response:** JSON response containing the shortcode for the shortened URL.
-     
-3. **Redirect URL:**
-   
-    This endpoint redirects the user to the long URL associated with the provided shortcode.
+2. **Redirect URL:**
+
+   This endpoint redirects the user to the long URL associated with the provided shortcode.
 
    - **Endpoint:** `GET /<shortcode>`
    - **Response:** Redirection to the original URL associated with the provided shortcode.
-     
-5. **Get Stats:**
-   
+3. **Get Stats:**
+
    This endpoint retrieves the statistics for the short URL associated with the provided shortcode.
 
    - **Endpoint:** `GET /<shortcode>/stats`
