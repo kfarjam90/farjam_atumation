@@ -55,6 +55,12 @@ Use tools like Postman to send requests to the API endpoints and verify the resp
     "url": "https://www.example.com/"
 }
 ```
+Response:
+```json
+{
+    "shortcode": "generated_shortcode"
+}
+```
 2. **To test the `/<shortencode>` endpoint:**
    - Set the request method to `GET`.
    - Set the request URL to `http://localhost:5000/<shortencode>`, replacing `/<shortencode>` with the shortcode you received from the `/shorten`          endpint.
@@ -64,4 +70,12 @@ Use tools like Postman to send requests to the API endpoints and verify the resp
    - Set the request method to `GET`.
    - Set the request URL to `http://localhost:5000/<shortencode>/stats`, replacing `/<shortencode>` with the shortcode you received from the `/shorten`          endpint.
    - Click send `send` to send the request. You should receive a JSON response with statistics for the URL associated with the shortcode.
-   
+
+Response:
+```json
+{
+    "created": "2017-05-10T20:45:00.000Z",
+    "lastRedirect": "2018-05-16T10:16:24.666Z",
+    "redirectCount": 2
+}
+```
