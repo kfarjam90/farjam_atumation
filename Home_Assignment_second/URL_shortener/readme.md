@@ -25,15 +25,20 @@ The Stats model stores statistics for each short URL, such as the creation date,
 ### API Endpoints
 
 1. **Shorten URL:**
+   This endpoint is used to shorten a URL.
 
    - **Endpoint:** `POST /shorten`
    - **Request Body:** JSON object with keys 'url' and optional 'shortcode'.
    - **Response:** JSON response containing the shortcode for the shortened URL.
-2. **Redirect URL:**
+     
+3. **Redirect URL:**
+    This route redirects the user to the long URL associated with the provided shortcode.
 
    - **Endpoint:** `GET /<shortcode>`
    - **Response:** Redirection to the original URL associated with the provided shortcode.
-3. **Get Stats:**
+     
+5. **Get Stats:**
+   This route retrieves the statistics for the short URL associated with the provided shortcode.
 
    - **Endpoint:** `GET /<shortcode>/stats`
    - **Response:** JSON response containing statistics for the URL associated with the shortcode.
