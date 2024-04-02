@@ -31,5 +31,3 @@ if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(download_all_sites(sites))
     duration = time.time() - start_time
     print(f"Downloaded {len(sites)} sites in {duration} seconds")
-
-# Downloaded 160 sites in 0.5103304386138916 seconds
