@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Todo Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+    }
+
+    form {
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    input {
+        width: 48%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f2f2f2;
+    }
+
+    .status {
+        color: green;
+    }
+
+    .actions a {
+        margin-right: 5px;
+        text-decoration: none;
+    }
+
+    .actions a:hover {
+        color: red;
+    }
+
+    button {
+        width: 50%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        font-weight: 500;
+        font-size: 20px;
+        margin: auto;
+    }
+</style>
+
+
+</style>
+
+<body>
+    <h1>Create Task</h1>
+    <form action="/add" method="post">
+        <input type="text" id="title" name="title" placeholder="Enter your task">
+        <br>
+        <button type="submit">Add</button>
+    </form>
+
+    <h1>Task List</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>STATUS</th>
+            <th>ACTIONS</th>
+            <th>Time</th>
+        </tr>
+        
+        {% for todo in todo_list %}
+
+        <tr>
+            <td>{{todo.id}}</td>
+            <td>{{todo.title}}</td>
+            <td class="status">{% if todo.completed %} completed {% else %} Not completed {% endif %}</td>
+
+            <td>
+                <a href="/complete/{{todo.id}}" class="btn btn-success">Complete</a>
+                <a href="/delete/{{todo.id}}" class="btn btn-danger">Delete</a>
+            </td>
+            <td>{{todo.date_created}}</td>
+        </tr>
+
+        {% endfor %}
+
+      
+    </table>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
