@@ -5,7 +5,7 @@ This is a Flask web application that provides a URL shortening service. It allow
 
 ## Installation
 
-1. Install Flask and SQLAlchemy using pip:
+1. Install:
 
    ```
    pip install Flask SQLAlchemy flask_swagger_ui
