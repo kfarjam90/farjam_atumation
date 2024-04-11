@@ -16,6 +16,12 @@ This is a Flask web application that provides a URL shortening service. It allow
    git clone https://github.com/kfarjam90/url-shortener.git
    cd url-shortener
    ```
+### Features
+
+- Shorten URLs: Generate unique shortcodes for long URLs.
+- Redirect: Redirect to the original URL using the generated shortcode.
+- Statistics: Retrieve statistics for each shortened URL, including creation date, last redirect time, and redirect count
+- Swagger Documentation: API documentation provided using Swagger UI.
 
 
 ## Models
