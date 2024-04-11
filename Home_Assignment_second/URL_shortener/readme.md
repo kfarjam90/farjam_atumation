@@ -74,6 +74,10 @@ The Stats model stores statistics for each short URL, such as the creation date,
 
 ## Testing
 
+Swagger UI documentation is available at /swagger, where you can explore and interact with the API endpoints
+
+or
+
 Use tools like Postman to send requests to the API endpoints and verify the responses.
 
 1. **To test the `/shorten` endpoint:**
